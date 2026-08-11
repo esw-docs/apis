@@ -1,29 +1,83 @@
 ---
-hidden: true
 layout:
   width: wide
   title:
-    visible: false
+    visible: true
   description:
     visible: false
   tableOfContents:
-    visible: false
+    visible: true
   outline:
     visible: false
   pagination:
     visible: true
   metadata:
-    visible: false
+    visible: true
   tags:
     visible: true
   actions:
-    visible: false
-metaLinks:
-  canonical: ./
-  alternates:
-    - ./
+    visible: true
 ---
 
-# Coming Soon
+# API Summary
 
-<div data-with-frame="true"><figure><img src=".gitbook/assets/Screenshot 2026-06-19 112244.png" alt=""><figcaption></figcaption></figure></div>
+{% stepper %}
+{% step %}
+### Customs Catalog
+
+{% tabs %}
+{% tab title="Upload Catalog" %}
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="POST" path="/api/v2/RetailerCatalog/TenantCode/{tenantCode}" baseUrl="https://logistics-customscatalog-api.sandbox.eshopworld.com/" title="Allows a retailer to upload a catalog for a tenant that will" defaults="{"path":{"tenantCode":""},"query":{},"headers":{"Content-Type":"application/json"},"body":[{"productCode":"string","name":"string","description":"string","material":"string","countryOfOrigin":"AD","hsCode":"string","hsCodeRegion":"AD","parentProductCode":"string","category":"AnimalsPetSupplies","categoryDesc":"string","gender":"Male","ageGroup":"Newborn","size":"string","weight":0,"weightUnit":"Lb","url":"string","imageUrl":"string","unitPrice":{"amount":0,"currency":"ARS"},"dangerousGoods":true,"isCustomized":true,"additionalProductCode":"string","variantProductCode":"string","restrictions":[{"type":"\n                hsCodeRestricted,\n                retailerRestricted\n            ","criteria":"\n                exclude,\n                include\n            ","countries":["..."]}],"isRestricted":true,"mid":"string","midAddressZip":"string","additionalInformation":"string","categoryInformation":"string","isSubscription":true,"eccn":"string","ean":"string","upc":"string"}]}" mode="closed" %}
+{% endtab %}
+{% endtabs %}
+{% endstep %}
+
+{% step %}
+### Pricing Advisor
+
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="GET" path="/api/4.0/StandardAdvice/{tenantCode}/{countryIso}" baseUrl="https://api.example.com" title="GET pricing advice for a country." defaults="{"path":{"tenantCode":"","countryIso":""},"query":{},"headers":{"Content-Type":"application/json"}}" mode="closed" %}
+
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="GET" path="/api/4.0/MultiplierAdvice/{tenantCode}/{countryIso}" baseUrl="https://api.example.com" title="GET multiplier pricing advice for a country." defaults="{"path":{"tenantCode":"","countryIso":""},"query":{},"headers":{"Content-Type":"application/json"}}" mode="closed" %}
+{% endstep %}
+
+{% step %}
+### Checkout
+
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="POST" path="/api/v3/{tenantCode}/PreOrder" baseUrl="https://api.sandbox.esw.com/checkout/" title="Creates an order." defaults="{"path":{"tenantCode":""},"query":{},"headers":{"Content-Type":"application/json"},"body":{"retailerCartId":"XX123456","contactDetails":[{"contactDetailsType":"IsDelivery","contactDetailsNickName":"NickName","addressId":"123","address1":"1071 5th Ave","address2":"Apt B1","address3":"New York","city":"New York","postalCode":"10128","region":"NY","country":"US","email":"test@email.com","firstName":"First Name","lastName":"Last name","telephone":"+14211112222","gender":"None","poBox":"","metadataItems":["..."],"isSelected":true,"isDefault":true}],"retailerPromoCodes":[{"promoCode":"XX123456","title":"Season discount","description":"Discounts for all goods due to winter season"}],"lineItems":[{"quantity":1,"estimatedDeliveryDateFromRetailer":"2020-08-31T11:54:24.631Z","lineItemId":"1","subscriptionItemId":"string","product":{"productCode":"...","title":"...","description":"...","imageUrl":"...","productUrl":"...","color":"...","size":"...","productUnitPriceInfo":"...","metadataItems":"...","isReturnProhibited":"...","inStock":"..."},"cartGrouping":"Group1","fulfilmentCountryIso":"IT","metadataItems":["..."]}],"cartDiscountPriceInfo":{"price":{"currency":"USD","amount":"100.00"},"discounts":[{"title":"...","description":"...","discount":"...","beforeDiscount":"...","percentage":"..."}]},"subscriptionOptInDetails":{"subscriptions":[{"retailerSubscriptionPlanId":"...","subscriptionItemDetails":"...","cadence":"...","trialPeriod":"...","metadataItems":"..."}]},"retailerCheckoutExperience":{"backToCartUrl":"https://url.com/cart","continueShoppingUrl":"https://url.com","inventoryCheckFailurePageUrl":"https://url.com","logoUrl":"https://url.com","metadataItems":[{"name":"...","value":"..."}]},"shopperCurrencyIso":"USD","retailerCurrencyIso":"EUR","pricingSynchronizationId":"abcdefg123456789","deliveryCountryIso":"US","shopperCheckoutExperience":{"useDeliveryContactDetailsForPaymentContactDetails":true,"emailMarketingOptIn":true,"registeredProfileId":"123456","registration":{"registrationUrl":"string","showRegistration":true,"registrationButtonText":"string","registrationContent":"string"},"shopperCultureLanguageIso":"en-IE","expressPaymentMethod":"Paypal|ApplePay|AndroidPay","viewType":"Web|NativeApp","sessionTimeout":20,"packagingOption":{"packagingType":"...","imageUrl":"string"},"metadataItems":[{"name":"...","value":"..."}],"smsMarketingOptIn":true,"marketingOptIns":[{"type":"...","legalHintText":"...","isSelected":"..."}]},"deliveryOptions":[{"deliveryOption":"Post|Exp2","deliveryOptionOverridePriceInfo":{"price":"...","discounts":"..."},"estimatedDeliveryDateOverride":"2020-08-31T11:54:24.631Z","metadataItems":["..."]}],"retailerDeliveryOptions":[{"deliveryOption":"Post|Exp2","title":"Non-ESW delivery option","estimatedDeliveryDateToShopper":{"dateFrom":"...","dateTo":"..."},"retailerDeliveryOptionPriceInfo":{"price":"...","discounts":"..."},"metadataItems":["..."]}]}}" mode="closed" %}
+
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="POST" path="/api/v3/Retailer/Confirmation" baseUrl="https://api.sandbox.esw.com/checkout/" title="Post for an order confirmation Checkout.Domain.Models.Contra" defaults="{"path":{},"query":{},"headers":{"Content-Type":"application/json"},"body":{"retailerCartId":"string","eShopWorldOrderNumber":"string","checkoutTotal":{"retailer":{"currency":"AUD","amount":"100.00"},"shopper":{"currency":"AUD","amount":"100.00"}},"pricingSynchronizationId":"string","paymentDetails":{"time":"string","method":"string","methodCardBrand":"string","fraudHold":true,"amountPaid":0,"isOverCounter":true,"ticketDetails":{"number":"string","imageUrl":"string","expirationDate":"string","collectionInstitutionNumber":"string"}},"retailerPromoCodes":[{"promoCode":"string","title":"string","description":"string"}],"lineItems":[{"quantity":0,"product":{"productCode":"...","hsCode":"...","title":"...","description":"...","productUnitPriceInfo":"...","imageUrl":"...","color":"...","size":"...","isReturnProhibited":"...","metadataItems":"...","category":"..."},"estimatedDeliveryDate":{"fromRetailer":"...","fromEShopWorld":"...","fromEShopWorldRangeFrom":"...","fromEShopWorldRangeTo":"..."},"lineItemId":0,"charges":{"subTotalBeforeTaxesAndCartDiscountsApplied":"...","subTotalAfterCartDiscount":"...","cartDiscountAttribution":"...","subTotal":"...","uplift":"...","delivery":"...","deliveryDuty":"...","deliveryTaxes":"...","taxes":"...","otherTaxes":"...","administration":"...","duty":"...","cashOnDelivery":"...","cashOnDeliveryTaxes":"...","dutyPromoDiscount":"..."},"metadataItems":["..."],"fulfilmentCountryIso":"string","deliveryOption":"string","articles":["..."],"lineItemZeroValueCharges":{"subTotal":"...","taxes":"...","otherTaxes":"...","duty":"..."},"appliedRates":["..."]}],"cartDiscountPriceInfo":{"price":{"retailer":"...","shopper":"..."},"discounts":[{"title":"...","description":"...","discount":"...","beforeDiscount":"...","percentage":"..."}]},"deliveryCountryIso":"string","shopperCheckoutExperience":{"shopperCultureLanguageIso":"string","emailMarketingOptIn":true,"registeredProfileId":"string","saveAddressForNextPurchase":true,"metadataItems":[{"name":"...","value":"..."}],"packagingOption":{"packagingType":"string","imageUrl":"string","message":"string"},"smsMarketingOptIn":true,"notes":"string","phoneMarketingOptIn":true,"postMarketingOptIn":true},"retailerCheckoutExperience":{"metadataItems":[{"name":"...","value":"..."}]},"deliveryOption":{"deliveryOption":"string","isShipToStore":true,"isMultiOrigin":true,"isPriceOverrideFromRetailer":true,"deliveryOptionPriceInfo":{"price":"...","discounts":["..."]},"metadataItems":[{"name":"...","value":"..."}]},"retailerDeliveryOption":{"deliveryOption":"string","title":"string","estimatedDeliveryDateToShopper":{"dateFrom":"string","dateTo":"string"},"deliveryOptionPriceInfo":{"price":"...","discounts":["..."]},"metadataItems":[{"name":"...","value":"..."}]},"charges":{"totalBeforeTaxesAndCartDiscountsApplied":{"retailer":"...","shopper":"..."},"totalAfterCartDiscount":{"retailer":"...","shopper":"..."},"totalCartDiscount":{"retailer":"...","shopper":"..."},"total":{"retailer":"...","shopper":"..."},"delivery":{"retailer":"...","shopper":"..."},"deliveryDuty":{"retailer":"...","shopper":"..."},"deliveryTaxes":{"retailer":"...","shopper":"..."},"taxes":{"retailer":"...","shopper":"..."},"otherTaxes":{"retailer":"...","shopper":"..."},"administration":{"retailer":"...","shopper":"..."},"duty":{"retailer":"...","shopper":"..."},"uplift":{"retailer":"...","shopper":"..."},"cashOnDelivery":{"retailer":"...","shopper":"..."},"cashOnDeliveryTaxes":{"retailer":"...","shopper":"..."},"dutyPromoDiscount":{"retailer":"...","shopper":"..."}},"zeroValueOrderCharges":{"zeroValueOrderSubTotal":{"retailer":"...","shopper":"..."},"zeroValueOrderTaxes":{"retailer":"...","shopper":"..."},"zeroValueOrderOtherTaxes":{"retailer":"...","shopper":"..."},"zeroValueOrderDuty":{"retailer":"...","shopper":"..."}},"contactDetails":[{"contactDetailType":"IsDelivery","contactDetailsNickName":"string","addressId":"string","firstName":"string","lastName":"string","gender":"None","addressType":"string","address1":"string","address2":"string","address3":"string","city":"string","poBox":"string","postalCode":"string","region":"string","country":"string","email":"string","telephone":"string","metadataItems":["..."],"isSelected":true,"isDefault":true,"saveToProfile":true,"status":"Unedited","nativeFirstName":"string","nativeLastName":"string"}],"paymentRecords":[{"time":"string","method":"string","methodCardBrand":"string","fraudHold":true,"amountPaid":0,"isOverCounter":true,"ticketDetails":{"number":"...","imageUrl":"...","expirationDate":"...","collectionInstitutionNumber":"..."}}],"cartType":"Standard"}}" mode="closed" %}
+{% endstep %}
+
+{% step %}
+### Order
+
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="POST" path="/api/v2/Order" baseUrl="https://api.example.com" title="Creates an order." defaults="{"path":{},"query":{},"headers":{"Content-Type":"application/json"}}" mode="closed" %}
+
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="PUT" path="/api/v2/Order/{brandOrderReference}/ContactDetails" baseUrl="https://api.example.com" title="Update Order Contact details" defaults="{"path":{"brandOrderReference":""},"query":{},"headers":{"Content-Type":"application/json"}}" mode="closed" %}
+
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="PATCH" path="/api/v2/Order/{brandOrderReference}/LineItem" baseUrl="https://api.example.com" title="Updates a Line Item within an order." defaults="{"path":{"brandOrderReference":""},"query":{},"headers":{"Content-Type":"application/json"}}" mode="closed" %}
+
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="GET" path="/api/v2/Order/{brandOrderReference}" baseUrl="https://api.example.com" title="Retrieves an order." defaults="{"path":{"brandOrderReference":""},"query":{},"headers":{"Content-Type":"application/json"}}" mode="closed" %}
+{% endstep %}
+
+{% step %}
+### Package
+
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="POST" path="/api/v4/Package" baseUrl="https://logistics-package-api.sandbox.eshopworld.com/" title="Posts the order information to create a package." defaults="{"path":{},"query":{},"headers":{"Content-Type":"application/json"},"body":{"brandCode":"GOC","orderReference":"ABC1234567890","packageReference":"AAA1234567890","orderType":"CHECKOUT","weight":{"weight":12.34,"weightUnit":"KG"},"shippingDocumentationRequested":false,"returnDocumentationRequested":false,"shippingStatus":"Complete","parentOrderReference":"ABC1234567890","carrierId":1,"carrierReference":"ABC1234567890","distributionCentre":"USDC1","hubCode":"AMS","additionalImportInformation":"Additional Import Information","isBackOrder":false,"dangerousGoods":false,"dangerousGoodsClassificationCode":"4.1","dangerousGoodsUNNumber":"UN 0001","consignee":{"name":"string","firstName":"John","lastName":"Doe","address1":"Address 1","address2":"Address 2","address3":"Address 3","city":"City","postalCode":"Post Code","poBox":"PO Box 123","region":"US","country":"US","gender":"Female","email":"test@test.com","telephone":"0123456789","unit":"Unit 456"},"shippingInfo":{"amount":123.45,"currency":"USD"},"insuranceAmount":{"amount":123.45,"currency":"USD"},"dimensions":{"dimHeight":"12.34","dimLength":"12.34","dimWidth":"12.34","dimWeight":"12.34","dimMeasurementUnit":"IN"},"goodsDescription":"Goods Description","serviceLevel":"POST","packageItems":[{"productCode":"ABC1234567890","lineItemId":1,"quantity":1,"productDescription":"Product Description","productCustomsDescription":"US","countryOfOrigin":"US","weight":{"weight":"...","weightUnit":"..."},"unitPrice":{"amount":"...","currency":"..."},"hsCode":"ABC123456","fta":false,"dangerousGoods":false,"serialNumber":"ABC123456","warrantyId":"ABC123456"}],"additionalCarrierData":{"additionalCarrierData1":"Additional Carrier Data 1","additionalCarrierData2":"Additional Carrier Data 2","additionalCarrierData3":"Additional Carrier Data 3","additionalCarrierData4":"Additional Carrier Data 4","additionalCarrierData5":"Additional Carrier Data 5"},"palletId":"ABC123456","metadata":null}}" mode="closed" %}
+
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="PUT" path="/api/v4/Package" baseUrl="https://logistics-package-api.sandbox.eshopworld.com/" title="Update an existing package's information." defaults="{"path":{},"query":{},"headers":{"Content-Type":"application/json"},"body":{"brandCode":"GOC","orderReference":"ABC123456789","packageReference":"AAA123456789","shippingStatus":"Complete","weight":{"weight":12.34,"weightUnit":"KG"},"carrierId":123,"carrierReference":"ABC123456789","carrierServiceDescription":"Aramex","distributionCentre":"USDC1","consignee":{"address1":"Address 1","address2":"Address 2","address3":"Address 3","city":"City","postalCode":"Postcode","poBox":"PO BOX 1234","region":"US"},"dimensions":{"dimHeight":"12.34","dimLength":"12.34","dimWidth":"12.34","dimWeight":"12.34","dimMeasurementUnit":"IN"},"serviceLevel":"POST","palletId":"ABC12345","additionalCarrierData":{"additionalCarrierData1":"Additional Carrier Data 1","additionalCarrierData2":"Additional Carrier Data 2","additionalCarrierData3":"Additional Carrier Data 3","additionalCarrierData4":"Additional Carrier Data 4","additionalCarrierData5":"Additional Carrier Data 5"},"clientType":"Unspecified"}}" mode="closed" %}
+
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="DELETE" path="/api/v4/Package" baseUrl="https://logistics-package-api.sandbox.eshopworld.com/" title="Deletes the requested package." defaults="{"path":{},"query":{"BrandCode":"","OrderReference":"","PackageReference":""},"headers":{"Content-Type":"application/json"}}" mode="closed" %}
+{% endstep %}
+
+{% step %}
+### Returns
+
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="POST" path="/returns/v1/{identifier}/orders/{orderReference}/return-orders" baseUrl="https://api.sandbox.esw.com" title="Creates a Return Order" defaults="{"path":{"identifier":"","orderReference":""},"query":{},"headers":{"Content-Type":"application/json"}}" mode="closed" %}
+
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="POST" path="/returns/v1/{identifier}/outbound-orders" baseUrl="https://api.sandbox.esw.com" title="Creates an Outbound Order" defaults="{"path":{"identifier":""},"query":{},"headers":{"Content-Type":"application/json"}}" mode="closed" %}
+
+{% @code-walkthrough/try-it specLoaded="" specEps="" method="PUT" path="/returns/v1/{identifier}/outbound-orders/{orderReference}" baseUrl="https://api.sandbox.esw.com" title="Updates an Outbound Order" defaults="{"path":{"identifier":"","orderReference":""},"query":{},"headers":{"Content-Type":"application/json"}}" mode="closed" %}
+{% endstep %}
+{% endstepper %}
+
