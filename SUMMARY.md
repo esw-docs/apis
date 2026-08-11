@@ -9,3 +9,4 @@
   * [Product catalog specification](microsoft-copilot-integration-guide/product-catalog-specification.md)
   * [Checkout, testing, and errors](microsoft-copilot-integration-guide/checkout-testing-and-errors.md)
   * [Catalog FAQs](microsoft-copilot-integration-guide/catalog-faqs.md)
+  * [Page 1](microsoft-copilot-integration-guide/page-1.md)
