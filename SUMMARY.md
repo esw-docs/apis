@@ -1,3 +1,3 @@
 # Table of contents
 
-- [Git Sync Test: override.md](docs/git-sync-test/override.md)
+- [Git Sync Test: override.md](override.md)
