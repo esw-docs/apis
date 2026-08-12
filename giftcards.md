@@ -1,6 +1,6 @@
 # Gift Card
 
-## Split payments (2 gift cards + credit card)
+## Split payments (2 gift cards + credit cards)
 
 A GoCasual checkout in Germany with the following payment structure
 
