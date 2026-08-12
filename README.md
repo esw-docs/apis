@@ -4,8 +4,6 @@
 
 A GoCasual checkout in Germany with the following payment structure
 
-<div data-with-frame="true"><figure><img src="/files/rOXMxTecMZYzPAbNeUdb" alt=""><figcaption></figcaption></figure></div>
-
 | Line                                         | Amount       |
 | -------------------------------------------- | ------------ |
 | Description of product one (Qty 1, Blk, M)   | 50.00 €      |
@@ -331,8 +329,6 @@ lineItem subTotal sum:  50.00 + 50.00 + 40.00 = 140.00
 
 A GoCasual checkout in Germany where a single gift card covers the **entire order** — items plus delivery. The cart total shows as **Free** and the balance to pay is **0.00 €**. The gift card has a remaining balance of 14.01 € after the purchase.
 
-<div data-with-frame="true"><figure><img src="/files/ZeBxMWUZ40JhIcWcXwR5" alt=""><figcaption></figcaption></figure></div>
-
 | Line                                  | Amount            |
 | ------------------------------------- | ----------------- |
 | Item (Blk, M)                         | 30.00 €           |
@@ -364,7 +360,6 @@ paymentDetails.amountPaid  ==  checkoutTotal.shopper.amount
 ### Order Confirmation Request Sample
 
 {% code expandable="true" %}
-
 ```json
 {
   "retailerCartId":        "CART-DE-2024-78543",
@@ -470,7 +465,6 @@ paymentDetails.amountPaid  ==  checkoutTotal.shopper.amount
   ]
 }
 ```
-
 {% endcode %}
 
 ***
@@ -500,7 +494,6 @@ A single payment instrument means having `paymentDetails` only is valid. `paymen
 
 {% tabs %}
 {% tab title="Valid — paymentRecords omitted" %}
-
 ```json
 "paymentDetails": {
   "method":     "GiftCard",
@@ -516,7 +509,6 @@ No `paymentRecords` field at all. This is correct and complete for a single gift
 {% endtab %}
 
 {% tab title="Also valid — paymentRecords included with one entry" %}
-
 ```json
 "paymentDetails": {
   "method":     "GiftCard",
@@ -602,8 +594,6 @@ lineItem subTotal:  30.00
 
 A GoCasual checkout in Germany where **two gift cards together cover the entire order** — items plus delivery with no credit or debit card involved. The total shows as **Free** and the balance to pay is **0.00 €**.
 
-<div data-with-frame="true"><figure><img src="/files/tT9ejsWfbEah5pLV9E3b" alt=""><figcaption></figcaption></figure></div>
-
 | Line                                    | Amount            |
 | --------------------------------------- | ----------------- |
 | Items                                   | 90.00 €           |
@@ -638,7 +628,6 @@ Total:        95.99 €  ==  checkoutTotal.shopper.amount
 ### Order Confirmation Request Sample
 
 {% code expandable="true" %}
-
 ```json
 {
   "retailerCartId":        "CART-DE-2024-78544",
@@ -784,7 +773,6 @@ Total:        95.99 €  ==  checkoutTotal.shopper.amount
   ]
 }
 ```
-
 {% endcode %}
 
 ***
