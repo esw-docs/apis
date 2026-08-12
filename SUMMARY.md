@@ -1,4 +1,4 @@
 # Table of contents
 
-* gift-cards.md
-* zerovalueorder.md
+* Gift Cards[gift-cards.md]
+* Zero Value Orde[zerovalueorder.md]
