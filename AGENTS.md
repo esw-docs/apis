@@ -22,3 +22,4 @@ When making changes, preserve GitBook sync metadata such as frontmatter, `SUMMAR
 
 ## Project-specific rules
 - When creating a new page, always add a corresponding entry to `SUMMARY.md` at the correct nesting level in the same commit. New pages are invisible in GitBook until they're listed there, with no error raised — this is the single most common cause of "my change didn't show up."
+- When finishing a documentation change, use the cr-create skill to open a GitBook change request for review, linked back to this pull request.
