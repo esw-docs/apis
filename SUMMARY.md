@@ -1,3 +1,3 @@
 # Table of contents
 
-- [Git Sync Test: override.md](override.md)
+* [MCP Test Page](README.md)
