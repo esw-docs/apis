@@ -19,3 +19,6 @@ https://gitbook.com/docs/skill.md
 When making changes, preserve GitBook sync metadata such as frontmatter, `SUMMARY.md`, `docs.yaml`, `.gitbook/`, and asset links unless the requested edit explicitly requires changing them.
 
 <!-- gitbook-agent-instructions:end -->
+
+## Project-specific rules
+- When creating a new page, always add a corresponding entry to `SUMMARY.md` at the correct nesting level in the same commit. New pages are invisible in GitBook until they're listed there, with no error raised — this is the single most common cause of "my change didn't show up."
